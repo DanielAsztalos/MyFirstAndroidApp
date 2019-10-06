@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">My First App</string>
+    <string name="signButton">Sign In</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="noOfCallsFromRegister">Number of calls from Register page:</string>
+    <string name="noOfCallsFromProfile">Number of calls from Profile:</string>
+    <string name="noOfCallsFromSignup">Number of calls from Signup page:</string>
+    <string name="signUp">SIGN UP</string>
+    <string name="register">REGISTER</string>
+    <string name="registerText">Register</string>
+    <string name="department">Department</string>
+    <string name="profile">Profile</string>
+    <string name="back">Back</string>
 </resources>

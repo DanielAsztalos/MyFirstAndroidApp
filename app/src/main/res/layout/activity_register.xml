@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".RegisterActivity">
 
     <TextView
         android:id="@+id/signIn"
@@ -14,13 +14,14 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginBottom="18dp"
-        android:text="@string/signButton"
+        android:text="@string/registerText"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@color/colorPrimary"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/firstName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/firstName"
@@ -50,7 +51,6 @@
         android:ems="10"
         android:hint="@string/last_name"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/regNumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,12 +62,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="50dp"
-        android:text="@string/noOfCallsFromRegister"
-        app:layout_constraintEnd_toStartOf="@+id/regNumber"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginTop="40dp"
+        android:text="@string/noOfCallsFromSignup"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastName" />
+        app:layout_constraintTop_toBottomOf="@+id/et_department" />
 
     <TextView
         android:id="@+id/profileText"
@@ -77,22 +75,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
         android:text="@string/noOfCallsFromProfile"
-        app:layout_constraintBottom_toTopOf="@+id/signUpBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_number_signup"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/regNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:text="0"
-        app:layout_constraintBottom_toBottomOf="@+id/profileNumber"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastName" />
+        app:layout_constraintTop_toTopOf="@+id/tv_number_signup" />
 
     <TextView
         android:id="@+id/profileNumber"
@@ -105,44 +89,49 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/profileText"
-        app:layout_constraintTop_toBottomOf="@+id/regNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_no_calls_signup" />
 
-    <Button
-        android:id="@+id/signUpBtn"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/et_department"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:text="@string/signUp"
-        app:layout_constraintEnd_toStartOf="@+id/registerBtn"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:ems="10"
+        android:hint="@string/department"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileText" />
+        app:layout_constraintTop_toBottomOf="@+id/lastName" />
 
-    <Button
-        android:id="@+id/registerBtn"
+    <TextView
+        android:id="@+id/tv_no_calls_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="40dp"
         android:layout_marginRight="40dp"
-        android:onClick="toRegisterPage"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tv_number_signup"
+        app:layout_constraintTop_toBottomOf="@+id/et_department" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:onClick="toProfilePage"
         android:text="@string/register"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileText" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="30dp"
-        android:cropToPadding="false"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpBtn"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:layout_constraintTop_toBottomOf="@+id/profileText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
