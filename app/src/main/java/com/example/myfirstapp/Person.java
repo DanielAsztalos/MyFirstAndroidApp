@@ -7,8 +7,20 @@ public class Person implements Serializable {
     private String lastName;
     private String department;
 
-    public Person() {
+    public Person(String firstName, String lastName) {
         super();
+
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.department = "-";
+    }
+
+    public Person(String firstName, String lastName, String department) {
+        super();
+
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.department = department;
     }
 
     public String getFirstName() {

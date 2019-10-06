@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My First App</string>
+    <string name="app_name">SigningApp</string>
     <string name="signButton">Sign In</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
