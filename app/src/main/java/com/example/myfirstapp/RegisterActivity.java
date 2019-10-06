@@ -29,4 +29,16 @@ public class RegisterActivity extends AppCompatActivity {
         intent.putExtra("PERSON", person);
         startActivityForResult(intent, PROFILE_INFO_REQUEST);
     }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent resultIntent) {
+        if(requestCode == PROFILE_INFO_REQUEST) {
+            if(resultCode == RESULT_OK) {
+                Person person = (Person) resultIntent.getSerializableExtra("PERSON");
+
+                String textToDisplay = person.getFirstName() + " " + person.getLastName() + " from " + person.getDepartment() + " department";
+
+                ((TextView)findViewById(R.id.dataFromOutside)).setText(textToDisplay);
+            }
+        }
+    }
 }

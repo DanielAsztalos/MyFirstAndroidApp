@@ -12,4 +12,8 @@
     <string name="department">Department</string>
     <string name="profile">Profile</string>
     <string name="back">Back</string>
+    <string name="firstNameEmpty">No Firstname</string>
+    <string name="lastNameEmpty">No Lastname</string>
+    <string name="departmentEmpty">-</string>
+    <string name="zero">0</string>
 </resources>
