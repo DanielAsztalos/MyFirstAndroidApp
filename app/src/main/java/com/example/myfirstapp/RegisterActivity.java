@@ -13,11 +13,33 @@ import android.widget.Toast;
 public class RegisterActivity extends AppCompatActivity {
 
     static final int PROFILE_INFO_REQUEST = 1;
+    private int fromSignup = 0;
+    private int fromProfile = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+    }
+
+    public void onResume() {
+        super.onResume();
+
+        Intent intent = getIntent();
+        String from = new String("");
+        from = intent.getStringExtra("FROM");
+        if(from != null) {
+            if(from.equals("SIGNUP")) {
+                fromSignup += 1;
+                ((TextView) findViewById(R.id.tv_no_calls_signup)).setText(String.valueOf(fromSignup));
+                intent.removeExtra("FROM");
+            }
+            else if (from.equals("PROFILE")) {
+                fromProfile += 1;
+                ((TextView) findViewById(R.id.profileNumber)).setText(String.valueOf(fromProfile));
+                intent.removeExtra("FROM");
+            }
+        }
     }
 
     // Navigate to Profile Activity
@@ -46,9 +68,9 @@ public class RegisterActivity extends AppCompatActivity {
 
         // Add it to the intent
         intent.putExtra("PERSON", person);
+        intent.putExtra("FROM", "REGISTER");
         startActivityForResult(intent, PROFILE_INFO_REQUEST);
     }
-
 
     protected void onActivityResult(int requestCode, int resultCode, Intent resultIntent) {
         // When the app returns with a result from the Profile Activity
@@ -61,6 +83,10 @@ public class RegisterActivity extends AppCompatActivity {
                 String textToDisplay = person.getFirstName() + " " + person.getLastName() + " from " + person.getDepartment() + " department";
                 // Display the text
                 ((TextView)findViewById(R.id.dataFromOutside)).setText(textToDisplay);
+
+                fromProfile += 1;
+
+                ((TextView) findViewById(R.id.profileNumber)).setText(String.valueOf(fromProfile));
             }
         }
     }

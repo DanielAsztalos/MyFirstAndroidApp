@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 public class ProfileActivity extends AppCompatActivity {
     private Person person;
+    private int fromSignup = 0;
+    private int fromRegister = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +33,35 @@ public class ProfileActivity extends AppCompatActivity {
         departmentTV.setText(person.getDepartment());
     }
 
+    public void onResume() {
+        super.onResume();
+
+        Intent intent = getIntent();
+        String from = new String("");
+        try {
+            from = intent.getStringExtra("FROM");
+        }catch (Exception e){
+        }
+
+        if(from != null) {
+            if(from.equals("SIGNUP")) {
+                fromSignup += 1;
+                ((TextView) findViewById(R.id.tv_no_calls_from_signup)).setText(String.valueOf(fromSignup));
+                intent.removeExtra("FROM");
+            }
+            else if (from.equals("REGISTER")) {
+                fromRegister += 1;
+                ((TextView) findViewById(R.id.tv_no_of_calls_reg)).setText(String.valueOf(fromRegister));
+                intent.removeExtra("FROM");
+            }
+        }
+    }
+
     public void back(View view) {
-        // When the back button is clicked send back the person object
+        // When the back button is clicked send back the person object to the Register Activity
         Intent resultIntent  = new Intent();
         resultIntent.putExtra("PERSON", this.person);
+        resultIntent.putExtra("FROM", "PROFILE");
         setResult(RESULT_OK, resultIntent);
         finish();
     }
